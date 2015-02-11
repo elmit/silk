@@ -181,7 +181,7 @@ class ResponseModelFactory(object):
     def body(self):
         body = ''
         content_type, char_set = _parse_content_type(self.response.get('Content-Type', ''))
-        content = self.response.content
+        content = self.response.streaming_content
         if char_set:
             try:
                 content = content.decode(char_set)
